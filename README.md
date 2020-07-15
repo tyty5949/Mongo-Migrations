@@ -9,6 +9,42 @@ my maintaining a collection of records indicating which migrations have been ran
 of this collection are then compared to the contents of the migrations directory. Any migrations
 that aren't applied will be before running the application.
 
+### Database Scripts
+
+**db:start & db:start-windows**
+
+These scripts will bring up the locally installed MongoDB server packages on the respective system. On Mac this assumes that MongoDB was installed
+via `homebrew`. On windows this script assumes that the MongoDB server is installed under the `C:\Program Files` directory.
+
+> Note: On Mac the MongoDB service will run in the background, freeing up the terminal this script is run on. But on Windows,
+> the MongoDB instance is run in the foreground, meaning the terminal isntance this command is run in will be occupied the entire
+> time the MongoDB instance in running.
+
+**db:stop**
+
+Kills the background MongoDB database service running on Mac.
+
+> Note: Only for Mac.
+
+**db:seed [seeder-a][seeder-b] [seeder-c] ...**
+
+Runs the specified seeder(s) against the database supplied for this environment. The supplied seeders represent the file names of the
+seeders within the configured seeder directory. If no file-extension is provided, `.ts` is infered.
+
+> WARNING: Care should be taken to not run seeders within production environments unless absolutely necessary as they have un-restricted access and can cause loss of data.
+
+**db:rebuild**
+
+// TODO
+
+**migrate:up**
+
+// TODO
+
+**migrate:down**
+
+// TODO
+
 ### Migrations Configuration
 
 **MongoDB Collection**
